@@ -1,0 +1,17 @@
+specVersion: 0.36.0
+name: functions-test
+runtime: springboot
+created: 2024-12-18T16:46:37.590Z
+build:
+  buildEnvs:
+    - name: BP_NATIVE_IMAGE
+      value: 'false'
+    - name: BP_JVM_VERSION
+      value: '21'
+    - name: BP_MAVEN_ACTIVE_PROFILES
+      value: native
+deploy:
+  healthEndpoints:
+    liveness: /actuator/health
+    readiness: /actuator/health
+image: quay.io/ycordova/functions-test:latest
